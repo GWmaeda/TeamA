@@ -1,8 +1,8 @@
 from flask import Flask
 
-app = Flask(__name__)
+application = Flask(__name__)  # EBはapplicationを探す
 
-@app.route('/')
+@application.route('/')
 def hello():
     return """
     <!DOCTYPE html>
@@ -17,5 +17,6 @@ def hello():
     </html>
     """
 
+# ローカル実行時のみ app.run を有効に
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(host='0.0.0.0', port=8080, debug=True)
