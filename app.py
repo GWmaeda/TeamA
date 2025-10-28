@@ -1,6 +1,7 @@
+import os
 from flask import Flask
 
-application = Flask(__name__)  # EBはapplicationを探す
+application = Flask(__name__)
 
 @application.route('/')
 def hello():
@@ -17,6 +18,6 @@ def hello():
     </html>
     """
 
-# ローカル実行時のみ app.run を有効に
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', port=8080, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    application.run(host='0.0.0.0', port=port, debug=True)
