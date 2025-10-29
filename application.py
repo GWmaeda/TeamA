@@ -5,23 +5,28 @@ import random
 # Flaskのインスタンス。WSGIアプリケーションオブジェクトは'application'
 application = Flask(__name__) 
 
-# 抽選の結果のリスト（例）
 PRIZES = ["アタリ！", "ハズレ", "もう一度", "参加賞"]
+
+FORTUNES = ["大吉", "吉", "中吉", "小吉", "凶"]
+
+# 占い結果ごとのポエム（お告げ）
+FORTUNE_POEMS = {
+    "大吉": "新しい風があなたに幸運を運びます。<br>迷わず進めば、道は必ず開けるでしょう。",
+    "吉": "小さな幸せが積み重なり、大きな喜びとなる日です。<br>感謝の気持ちを忘れずに。",
+    "中吉": "努力が実を結ぶタイミング。<br>焦らず、着実に歩みましょう。",
+    "小吉": "周囲との調和を大切に。<br>穏やかな心が運気を呼び込みます。",
+    "凶": "休息も大切な一歩。<br>無理せず、心身を整える時間にしましょう。"
+}
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
-    # POSTリクエストの場合（ボタンが押された場合）
     if request.method == 'POST':
-        # PRIZESリストからランダムに1つを選択
         result = random.choice(PRIZES)
-        
-        # 結果をHTMLテンプレートに渡して表示
-        return render_template('index.html', result=result)
-        
-    # GETリクエストの場合（初期表示）
+        fortune = random.choice(FORTUNES)
+        poem = FORTUNE_POEMS.get(fortune, "")
+        return render_template('index.html', result=result, fortune=fortune, poem=poem)
     else:
-        # 初期表示。resultにはNoneを渡す
-        return render_template('index.html', result=None)
+        return render_template('index.html', result=None, fortune=None, poem=None)
 
 if __name__ == "__main__":
     # Elastic Beanstalkではこのブロックは無視されますが、ローカルテスト用として残します。
