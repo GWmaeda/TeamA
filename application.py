@@ -20,13 +20,15 @@ FORTUNE_POEMS = {
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
+    # 簡易的な会員フラグ（本来はセッション/DBで管理）
+    membership = False
     if request.method == 'POST':
         result = random.choice(PRIZES)
         fortune = random.choice(FORTUNES)
         poem = FORTUNE_POEMS.get(fortune, "")
-        return render_template('index.html', result=result, fortune=fortune, poem=poem)
+        return render_template('index.html', result=result, fortune=fortune, poem=poem, membership=membership)
     else:
-        return render_template('index.html', result=None, fortune=None, poem=None)
+        return render_template('index.html', result=None, fortune=None, poem=None, membership=membership)
 
 if __name__ == "__main__":
     # Elastic Beanstalkではこのブロックは無視されますが、ローカルテスト用として残します。
