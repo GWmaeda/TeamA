@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request
 import random
 
+
 # Flaskのインスタンス。WSGIアプリケーションオブジェクトは'application'
 application = Flask(__name__) 
 
