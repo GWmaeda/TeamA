@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teama-dev-baa3a-authRole",
+      "UnauthRoleArn": "arn:aws:iam::042518486983:role/amplify-teama-dev-baa3a-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::042518486983:role/amplify-teama-dev-baa3a-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-teama-dev-baa3a-deployment",
+      "UnauthRoleName": "amplify-teama-dev-baa3a-unauthRole",
+      "StackName": "amplify-teama-dev-baa3a",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:042518486983:stack/amplify-teama-dev-baa3a/1f3e0730-c054-11f0-a1e2-0a5d90bfabd1",
+      "AmplifyAppId": "d307dhvhhwvga1"
+    },
+    "categories": {
+      "auth": {
+        "teama9d8f145a": {}
+      }
+    }
+  }
+}

@@ -1,3 +1,17 @@
 {
-  "version": "1.4"
+  "auth": {
+    "aws_cognito_user_pool_id": "local-user-pool-id",
+    "aws_cognito_user_pool_client_id": "local-client-id",
+    "aws_cognito_identity_pool_id": "local-identity-pool-id"
+  },
+  "api": {
+    "GraphQLAPIEndpointOutput": "http://localhost:20002/graphql",
+    "GraphQLAPIIdOutput": "local-api-id",
+    "GraphQLAPIKeyOutput": "local-api-key"
+  },
+  "storage": {
+    "S3Bucket": "local-bucket",
+    "Region": "local-region"
+  },
+  "environment": "sandbox-local"
 }
